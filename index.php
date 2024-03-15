@@ -25,38 +25,19 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td><input aria-label="prior institution" name="priorInstitutionInput" type="text"></td>
-                    <td><input aria-label="appointed years" name="appointedYearsInput" min="0" type="number"></td>
-                    <td><input aria-label="last appointed rank" name="lastAppointedRankInput" type="text"></td>
-                    <td><input aria-label="years in rank" name="yearsInRankInput" min="0" type="number"></td>
-                    <td><input aria-label="requested tenure years" name="requestedTenureYearsInput" class="tenure-years" min="0" type="number" headers="tenureHeader"></td>
-                    <td><input aria-label="requested promotion years" name="requestedPromotionYearsInput" class="promotion-years" min="0" type="number" headers="promotionHeader"></td>
-                </tr>
-                <tr>
-                    <td><input aria-label="prior institution" name="priorInstitutionInput" type="text"></td>
-                    <td><input aria-label="appointed years" name="appointedYearsInput" min="0" type="number"></td>
-                    <td><input aria-label="last appointed rank" name="lastAppointedRankInput" type="text"></td>
-                    <td><input aria-label="years in rank" name="yearsInRankInput" min="0" type="number"></td>
-                    <td><input aria-label="requested tenure years" name="requestedTenureYearsInput" class="tenure-years" min="0" type="number" headers="tenureHeader"></td>
-                    <td><input aria-label="requested promotion years" name="requestedPromotionYearsInput" class="promotion-years" min="0" type="number" headers="promotionHeader"></td>
-                </tr>
-                <tr>
-                    <td><input aria-label="prior institution" name="priorInstitutionInput" type="text"></td>
-                    <td><input aria-label="appointed years" name="appointedYearsInput" min="0" type="number"></td>
-                    <td><input aria-label="last appointed rank" name="lastAppointedRankInput" type="text"></td>
-                    <td><input aria-label="years in rank" name="yearsInRankInput" min="0" type="number"></td>
-                    <td><input aria-label="requested tenure years" name="requestedTenureYearsInput" class="tenure-years" min="0" type="number" headers="tenureHeader"></td>
-                    <td><input aria-label="requested promotion years" name="requestedPromotionYearsInput" class="promotion-years" min="0" type="number" headers="promotionHeader"></td>
-                </tr>
-                <tr>
-                    <td><input aria-label="prior institution" name="priorInstitutionInput" type="text"></td>
-                    <td><input aria-label="appointed years" name="appointedYearsInput" min="0" type="number"></td>
-                    <td><input aria-label="last appointed rank" name="lastAppointedRankInput" type="text"></td>
-                    <td><input aria-label="years in rank" name="yearsInRankInput" min="0" type="number"></td>
-                    <td><input aria-label="requested tenure years" name="requestedTenureYearsInput" class="tenure-years" min="0" type="number" headers="tenureHeader"></td>
-                    <td><input aria-label="requested promotion years" name="requestedPromotionYearsInput" class="promotion-years" min="0" type="number" headers="promotionHeader"></td>
-                </tr>
+
+                <?php
+                    for($i = 0; $i < 4; ++$i){ ?>
+                        <tr>
+                            <td><input aria-label="prior institution" name="priorInstitutionInput" type="text"></td>
+                            <td><input aria-label="appointed years" name="appointedYearsInput" min="0" type="number"></td>
+                            <td><input aria-label="last appointed rank" name="lastAppointedRankInput" type="text"></td>
+                            <td><input aria-label="years in rank" name="yearsInRankInput" min="0" type="number"></td>
+                            <td><input aria-label="requested tenure years" name="requestedTenureYearsInput" class="tenure-years" min="0" type="number" headers="tenureHeader"></td>
+                            <td><input aria-label="requested promotion years" name="requestedPromotionYearsInput" class="promotion-years" min="0" type="number" headers="promotionHeader"></td>
+                        </tr><?php
+                    }
+                ?>
             </tbody>
             <tfoot>
                 <tr>
