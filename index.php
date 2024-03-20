@@ -1,15 +1,16 @@
-<?php
-    require 'TableForm.php';
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Form Table Input</title>
 </head>
 <body>
-    <form action="post">
+    <?php
+        require 'TableForm.php';
+    ?>
+    <!-- <form action="post">
         <table class="custom-table">
             <thead>
                 <tr>
@@ -48,62 +49,7 @@
                 </tr>
             </tfoot>
         </table>
-    </form>
-    <script>
-        /*Listen for input from table cells to calculate a total for tenure and promotion.*/
-        document.addEventListener("input", (e) => {
-            if(e.target.classList.contains("tenure-years") || e.target.classList.contains("promotion-years")){
-                let tenureYears = document.querySelectorAll(".tenure-years")
-                let promotionYears = document.querySelectorAll(".promotion-years")
-
-                const calcTotalYears = (years, totalId) => {
-                    let total = 0
-                    years.forEach(year => {
-                        total += Number(year.value)
-                    })
-                    document.getElementById(totalId).innerText = total
-                }
-
-                calcTotalYears(tenureYears, "tenureYearsTotal")
-                calcTotalYears(promotionYears, "promotionYearsTotal")
-            }
-        })
-    </script>
-    
-    <style>
-        * {
-            text-align: center;
-        }
-        th, td {
-            border: 1px solid;
-            padding: 8px;
-        }
-        input {
-            width: 90%;
-            align-self: center;
-        }
-        input, .tenure-years-total, .promotion-years-total {
-            border: none;
-            margin: 0;
-            padding: 10px;
-        }
-
-        .custom-table {
-            width: 80%;
-            background-color: #ffffff;
-            border-collapse: collapse;
-            border-width: 1px;
-            border-color: #ffffff;
-            border-style: solid;
-            margin: 10px auto;
-        }
-
-        table.custom-table thead {
-            background-color: #ffffff;
-        }
-        .total-years-requested {
-            background-color: lightgray;
-        }
-    </style>
+    </form> -->
+    <script src="./TableEvents.js"></script>
 </body>
 </html>

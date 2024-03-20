@@ -1,0 +1,33 @@
+* {
+    text-align: center;
+}
+th, td {
+    border: 1px solid;
+    padding: 8px;
+}
+input {
+    width: 90%;
+    align-self: center;
+}
+input, .tenure-years-total, .promotion-years-total {
+    border: none;
+    margin: 0;
+    padding: 10px;
+}
+
+.custom-table {
+    width: 80%;
+    background-color: #ffffff;
+    border-collapse: collapse;
+    border-width: 1px;
+    border-color: #ffffff;
+    border-style: solid;
+    margin: 10px auto;
+}
+
+table.custom-table thead {
+    background-color: #ffffff;
+}
+.total-years-requested {
+    background-color: lightgray;
+}
