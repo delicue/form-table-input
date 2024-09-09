@@ -1,14 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
     text-align: center;
 }
-th, td {
+
+th,
+td {
     border: 1px solid;
     padding: 8px;
 }
+
 input {
     align-self: center;
 }
-input, .tenure-years-total, .promotion-years-total {
+
+input,
+.tenure-years-total,
+.promotion-years-total {
     border: none;
     margin: 0;
     padding: 10px;
@@ -27,6 +37,7 @@ input, .tenure-years-total, .promotion-years-total {
 table.custom-table thead {
     background-color: #ffffff;
 }
+
 .total-years-requested {
     background-color: lightgray;
 }

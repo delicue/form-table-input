@@ -1,9 +1,9 @@
 <?php
 namespace CueForm;
 class TableForm {
-    private array $headerRows = array();
-    private array $bodyRows = array();
-    private array $footerRows = array();
+    private array $headerRows = [];
+    public array $bodyInputs = [];
+    private array $footerRows = [];
     private int $bodyColCount = 0;
 
     public $class = 'custom-table';
@@ -12,13 +12,12 @@ class TableForm {
     public function __construct(public array $headers, public int $bodyRowsCount, public array|null $footers,) {
         //push all headers to headerRows
         $this->createHeaderRows($this->headers);
-        // $this->createBodyRows($this->bodyRowsCount);
         // $this->createFooterRows($this->footers);
     }
 
     private function createHeaderRows(array $headers): void {
         array_push($this->headerRows, $headers);
-        $subheaders = array();
+        $subheaders = [];
 
         //Find all headers that contain subheaders
         foreach($headers as $header) {
@@ -29,7 +28,6 @@ class TableForm {
                 }
             }
             else {
-                // $header->rowspan++;
                 if($header->rowspan > $this->headerRowspan)
                     $this->headerRowspan = $header->rowspan;
                 array_push($subheaders, null);
@@ -41,38 +39,40 @@ class TableForm {
         }
     }
 
-    private function createBodyRows(int $body): void {
-        
-    }
-
-    private function createFooterRows(array $footers): void {
-
-    }
-
     public function __toString(): string
     {
         //Header Rows
-        $headers = '<thead>';
+        $headers = "<thead>\n";
         foreach($this->headerRows as $row){
-            $headers .= "<tr>";
-            foreach($row as $header)
-                $headers .= $header;
-            $headers .= "</tr>";
+            $headers .= "<tr>\n";
+            foreach($row as $header){
+                //If the header column has no subheaders, increase rowspan
+                if(!$header->subheaders){
+                    $header->rowspan++;
+                    $this->bodyColCount++;
+                }
+                $headers .= "{$header}\n";
+            }
+            $headers .= "</tr>\n";
         }
-        $headers .= '</thead>';
+        $headers .= "</thead>\n";
 
         //Body Rows
-        $body = '<tbody>';
-        for($i = 0; $i < $this->bodyRowsCount; $i++){
-            $body .= "<tr><input type='text'></tr>";
+        $body = "<tbody>\n";
+        for($row = 0; $row < $this->bodyRowsCount; $row++){
+            $body .= "<tr id='bodyRow{$row}'>\n";
+            for($col = 0; $col < $this->bodyColCount; $col++){
+                $body .= "<td><input name='bodyRow{$row}Input{$col}' type='text'></td>\n";
+                $this->bodyInputs[$row][$col] = "bodyRow{$row}Input{$col}";
+            }
+            $body .= "</tr>\n";
         }
-        $body .= '</tbody>';
+        $body .= "</tbody>\n";
 
         //Footer Rows
-        $footer = '<tfoot>';
-        $footer .= '</tfoot>';
+        $footer = "<tfoot>";
+        $footer .= "</tfoot>";
 
-        return "<table class='$this->class'>" . $headers . "</table>";
+        return "<form action='./src/submit.php' method='post'><table class='{$this->class}'>\n{$headers}{$body}</table><input type='submit'></form>";
     }
 };
-?>

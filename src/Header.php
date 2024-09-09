@@ -10,8 +10,8 @@ class Header {
     public function __construct(
         public $id,
         public $contents,
-        public $subheaders=array(),
-        public $superheaders=array()
+        public $subheaders=[],
+        public $superheaders=[]
     ){
         $this->colspan = count($this->subheaders);
     }
@@ -21,4 +21,3 @@ class Header {
         return "<th id='$this->id' scope='$this->scope' colspan='$this->colspan' rowspan='$this->rowspan'>$this->contents</th>";
     }
 };
-?>
